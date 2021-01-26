@@ -15,9 +15,9 @@ jobs:
 
       - name: Clean Install dependencies and Build
         run: |
-          npm install
+          yarn install
           rm -rf build
-          npm build
+          yarn build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
