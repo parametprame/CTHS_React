@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - 'package.json'
 
 jobs:
   build:
@@ -13,9 +15,9 @@ jobs:
 
       - name: Clean Install dependencies and Build
         run: |
-          yarn install
+          npm install
           rm -rf build
-          yarn build
+          npm build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
