@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/deploy-with-github-actions/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/deploy-with-github-actions/static/js/main.1d148ac4.chunk.js",
+    "main.js.map": "/deploy-with-github-actions/static/js/main.1d148ac4.chunk.js.map",
+    "runtime-main.js": "/deploy-with-github-actions/static/js/runtime-main.74e53f78.js",
+    "runtime-main.js.map": "/deploy-with-github-actions/static/js/runtime-main.74e53f78.js.map",
+    "static/js/2.e5d2e623.chunk.js": "/deploy-with-github-actions/static/js/2.e5d2e623.chunk.js",
+    "static/js/2.e5d2e623.chunk.js.map": "/deploy-with-github-actions/static/js/2.e5d2e623.chunk.js.map",
+    "static/js/3.f5231ea3.chunk.js": "/deploy-with-github-actions/static/js/3.f5231ea3.chunk.js",
+    "static/js/3.f5231ea3.chunk.js.map": "/deploy-with-github-actions/static/js/3.f5231ea3.chunk.js.map",
+    "index.html": "/deploy-with-github-actions/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/deploy-with-github-actions/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.e5d2e623.chunk.js.LICENSE.txt": "/deploy-with-github-actions/static/js/2.e5d2e623.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.74e53f78.js",
+    "static/js/2.e5d2e623.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.1d148ac4.chunk.js"
+  ]
+}
