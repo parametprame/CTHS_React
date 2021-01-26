@@ -1,7 +1,12 @@
 {
   "name": "cths",
+  "homepage": "https://parametprame.github.io/deploy-with-github-actions",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parametprame/CTHS_React.git"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
