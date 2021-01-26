@@ -12,8 +12,6 @@ const useStyles = makeStyles(() => ({
     }
   }));
 
-
-
 const Treatmentpage = () => {
     const classes = useStyles();
     return (
