@@ -1,9 +1,9 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
       display: 'flex',
     },
@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Medicinepage = () => {
     const classes = useStyles();
-    const theme = useTheme();
     return (
         <React.Fragment className={classes.root}>
             <Box className={classes.boxAdmin}>

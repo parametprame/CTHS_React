@@ -30,8 +30,7 @@ import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
 import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
-import { Switch, Route, BrowserRouter, Redirect, Link } from "react-router-dom";
-import Treatmentpage from '../pages/Treatment';
+import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
