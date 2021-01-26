@@ -20,7 +20,7 @@ const Diagnosispage = () => {
         <React.Fragment className={classes.root}>
             <Box className={classes.boxAdmin}>
                 <Typography paragraph>
-                    Dianosis Page
+                    Dianosis Pagess
                 </Typography>
             </Box>
         </React.Fragment>
