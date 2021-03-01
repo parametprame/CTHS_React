@@ -17,7 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button'
 import Homepage from '../pages/Homepage'
-import Patients from '../pages/Patients'
+import Patients from '../pages/Patients/Patients'
+import CreatePatients from '../pages/Patients/Create'
 import Administor from '../pages/Administor'
 import Diagnosis from '../pages/Diagnosis'
 import Medicine from '../pages/Medicine'
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   appBar: {
-    backgroundColor: "#84ffff",
+    backgroundColor: "#bde4e2",
     color: "black",
     justifyContent: 'center',
     transition: theme.transitions.create(['margin', 'width'], {
@@ -233,6 +234,7 @@ const  Layout = () => {
           <React.Fragment>
                 <Route exact path="/" component={Homepage} />
                 <Route exact path="/patients" component={Patients} />
+                <Route exact path="/patients/create" component={CreatePatients}/>
                 <Route exact path="/treatment" component={Treatment} />
                 <Route exact path="/diagnosis" component={Diagnosis} />
                 <Route exact path="/medicine" component={Medicine} />
