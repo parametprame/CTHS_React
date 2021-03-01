@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Typography, Button } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { InfoCard } from '@mystiny/ui';
 import DescriptionIcon from '@material-ui/icons/Description';
 import PatientsForm from './Patients-form'
