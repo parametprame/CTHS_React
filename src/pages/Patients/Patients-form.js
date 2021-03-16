@@ -1,224 +1,365 @@
 import React from 'react'
-import { TextField, Grid, Typography, MenuItem, Radio, RadioGroup, FormControlLabel, FormControl} from '@material-ui/core';
+import {
+    Grid,
+    Typography,
+    MenuItem,
+    RadioGroup,
+    FormControlLabel,
+    FormControl,
+    FormLabel,
+} from '@material-ui/core';
+import { Form, Field } from 'react-final-form';
 import { makeStyles } from '@material-ui/core/styles';
 import { CountryRegionData } from "react-country-region-selector";
+import { TextField, Radio, Select } from 'final-form-material-ui';
+
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      '& .MuiTextField-root': {
-        width: '25ch',
-      },
+        '& .MuiTextField-root': {
+            width: '25ch',
+        },
     },
-  }));
+}));
 
 
-  
-const PatientsForm  = (props) => {
+
+const PatientsForm = (props) => {
     const classes = useStyles();
-    const [value, setValue] = React.useState('student');
-    const [state, setState] = React.useState('single');
     const GroupBlood = ['A', 'B', "AB", 'O']
-    const handleChange = (event) => {
-        setValue(event.target.value);
-      };
-    const handleChangeState = (event) => {
-        setState(event.target.value);
-    };
-    
-    return(
-        <React.Fragment>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <TextField
-                                label="ชื่อ"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                required={true}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                label="นามสกุล"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                required={true}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                label="รหัสบัตรประชาชน"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                required={true}
-                            />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography paragraph >
-                                วัน/เดือน/ปี เกิด
-                            </Typography>
-                            <TextField
-                                id="outlined-password-input"
-                                type="date"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                required={true}
-                            />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography paragraph >
-                                สัญชาติ
-                            </Typography>
-                            <TextField
-                                id="country"
-                                select
-                                variant="outlined"
-                                required={true}
-                                style={{width: '100%'}}
-                                isplayEmpty
-                                // onChange={props.handleChange("country")}
-                            >
-                                {CountryRegionData.map((option, index) => (
-                                <MenuItem key={option[0]} value={option}>
-                                    {option[0]}
-                                </MenuItem>
-                                ))}
-                            </TextField>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography paragraph >
-                                เชื้อชาติ
-                            </Typography>
-                            <TextField
-                                id="country"
-                                select
-                                variant="outlined"
-                                required={true}
-                                style={{width: '100%'}}
-                                isplayEmpty
-                                // onChange={props.handleChange("country")}
-                            >
-                                {CountryRegionData.map((option, index) => (
-                                <MenuItem key={option[0]} value={option}>
-                                    {option[0]}
-                                </MenuItem>
-                                ))}
-                            </TextField>
-                        </Grid>
-                        <Grid item xs={4} >
-                            <Typography paragraph >
-                                สิทธิการรักษา
-                            </Typography>
-                            <FormControl component="fieldset">
-                            <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-                                <FormControlLabel value="student" control={<Radio />} label="นักศึกษา" />
-                                <FormControlLabel value="employees" control={<Radio />} label="พนักงานเงินงบประมาณ" />
-                                <FormControlLabel value="official" control={<Radio />} label="ข้าราชการ" />
-                                <FormControlLabel value="incomeEmployee" control={<Radio />} label="พนักงานเงินได้" />
-                                <FormControlLabel value="socialSecurity" control={<Radio />} label="ประกันสังคม" />
-                                <FormControlLabel value="specialStaff" control={<Radio />} label="พนักงานพิเศษ" />
-                                <FormControlLabel value="employeesChangeCondition" control={<Radio />} label="พนักงานเปลี่ยนสภาพ" />
-                                <FormControlLabel value="other" control={<Radio />} label="อื่นๆ" />
+    const onSubmit = (value) => {
+        console.log(value)
+    }
 
-                            </RadioGroup>
-                            </FormControl>       
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography paragraph >
-                                สถานะ
+    return (
+        <React.Fragment>
+            <Form
+                onSubmit={onSubmit}
+                render={({ handleSubmit }) => (
+                    <form className={classes.root} noValidate autoComplete="true" onSubmit={handleSubmit}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={6}>
+                                <Field
+                                    fullWidth
+                                    required
+                                    name="firstName"
+                                    component={TextField}
+                                    type="text"
+                                    label="ชื่อ"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Field
+                                    name="lastName"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required
+                                    component={TextField}
+                                    label="นามสกุล"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Field
+                                    label="รหัสบัตรประชาชน"
+                                    type="text"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required
+                                    name="IDCard"
+                                    component={TextField}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Typography paragraph >
+                                    วัน/เดือน/ปี เกิด
                             </Typography>
-                            <FormControl component="fieldset">
-                            <RadioGroup aria-label="gender" name="gender1" value={state} onChange={handleChangeState}>
-                                <FormControlLabel value="single" control={<Radio />} label="โสด" />
-                                <FormControlLabel value="marry" control={<Radio />} label="สมรส" />
-                                <FormControlLabel value="other" control={<Radio />} label="อื่นๆ" />
-                            </RadioGroup>
-                            </FormControl>       
+                                <Field
+                                    id="outlined-password-input"
+                                    type="date"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required={true}
+                                    component={TextField}
+                                    name='date'
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Typography paragraph >
+                                    สัญชาติ
+                                </Typography>
+                                <Field
+                                    id="country"
+                                    select
+                                    variant="outlined"
+                                    required={true}
+                                    style={{ width: '100%' }}
+                                    isplayEmpty
+                                    component={Select}
+                                    name="country"
+                                    formControlProps={{ fullWidth: true }}
+                                // onChange={props.handleChange("country")}
+                                >
+                                    {CountryRegionData.map((option, index) => (
+                                        <MenuItem key={option[0]} value={option}>
+                                            {option[0]}
+                                        </MenuItem>
+                                    ))}
+                                </Field>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Typography paragraph >
+                                    สัญชาติ
+                                </Typography>
+                                <Field
+                                    id="country2"
+                                    select
+                                    variant="outlined"
+                                    required={true}
+                                    style={{ width: '100%' }}
+                                    isplayEmpty
+                                    component={Select}
+                                    name="country2"
+                                    formControlProps={{ fullWidth: true }}
+                                // onChange={props.handleChange("country")}
+                                >
+                                    {CountryRegionData.map((option, index) => (
+                                        <MenuItem key={option[0]} value={option}>
+                                            {option[0]}
+                                        </MenuItem>
+                                    ))}
+                                </Field>
+                            </Grid>
+                            <Grid item xs={4} >
+                                <FormControl component="fieldset">
+                                    <FormLabel component="legend">สิทธิการรักษา</FormLabel>
+                                    <RadioGroup column>
+                                        <FormControlLabel
+                                            label="นักศึกษา"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="student"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="พนักงานเงินงบประมาณ"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="employees"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="ข้าราชการ"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="official"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="พนักงานเงินได้"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="incomeEmployee"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="ประกันสังคม"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="socialSecurity"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="พนักงานพิเศษ"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="specialStaff"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="พนักงานเปลี่ยนสภาพ"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="employeesChangeCondition"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="อื่นๆ"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="other"
+                                                />
+                                            }
+                                        />
+                                    </RadioGroup>
+                                </FormControl>
+                            </Grid>
+                            <Grid item xs={4} >
+                                <FormControl component="fieldset">
+                                    <FormLabel component="legend">สถานะ</FormLabel>
+                                    <RadioGroup column>
+                                        <FormControlLabel
+                                            label="โสด"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="single"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="สมรส"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="marry"
+                                                />
+                                            }
+                                        />
+                                        <FormControlLabel
+                                            label="อื่น ๆ"
+                                            control={
+                                                <Field
+                                                    name="stooge"
+                                                    component={Radio}
+                                                    type="radio"
+                                                    value="other"
+                                                />
+                                            }
+                                        />
+                                    </RadioGroup>
+                                </FormControl>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Field
+                                    label="รหัสบัตรประจำตัว"
+                                    type="text"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required
+                                    name="idss"
+                                    component={TextField}
+                                />
+                                <Field
+                                    name="blood"
+                                    component={Select}
+                                    label="กลุ่มเลือด"
+                                    variant="outlined"
+                                    type="text"
+                                    style={{marginTop: 20}}
+                                    formControlProps={{ fullWidth: true }}
+                                >
+                                    {GroupBlood.map((item, index) => (
+                                        <MenuItem key={item[0]} value={item}>
+                                            {item}
+                                        </MenuItem>
+                                    ))}
+                                </Field>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Field
+                                    label="เบอร์โทรศัพท์"
+                                    type="text"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required
+                                    name="tell"
+                                    component={TextField}
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Field
+                                    label="โรงพยาบาลที่ส่งต่อ"
+                                    type="text"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required
+                                    name="to_hospital"
+                                    component={TextField}
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Typography paragraph >
+                                    เลขบัตรทอง
+                                </Typography>
+                                <Field
+                                    label="เลขบัตรทอง"
+                                    type="text"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required
+                                    name="idGoldCard"
+                                    component={TextField}
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Typography paragraph >
+                                    วันหมดอายุบัตรทอง
+                                </Typography>
+                                <Field
+                                    id="outlined-password-input"
+                                    formControlProps={{ fullWidth: true }}
+                                    type="date"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required={true}
+                                    component={TextField}
+                                    name='dateExpGorldCard'
+                                    
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Field
+                                    label="ที่อยู่"
+                                    type="text"
+                                    variant="outlined"
+                                    style={{ width: '100%' }}
+                                    required
+                                    name="address"
+                                    component={TextField}
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                label="รหัสบัตรประจำตัว"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                required={true}
-                            />
-                            <TextField
-                                label="กลุ่มเลือด"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%',marginTop: 20}}
-                                required={true}
-                                select
-                                displayEmpty
-                            >
-                                {GroupBlood.map((item, index) => (
-                                    <MenuItem key={item[0]} value={item}>
-                                        {item}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                label="เบอร์โทรศัพท์"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                required={true}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                label="โรงพยาบาลที่ส่งต่อ"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                required={true}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography paragraph >
-                                เลขบัตรทอง
-                            </Typography>
-                            <TextField
-                                label="เลขบัตรทอง"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                size='medium'
-                                required={true}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography paragraph >
-                                วันหมดอายุบัตรทอง
-                            </Typography>
-                            <TextField
-                                id="outlined-password-input"
-                                type="date"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                required={true}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                label="ที่อยู่"
-                                type="text"
-                                variant="outlined"
-                                style={{width: '100%'}}
-                                size='medium'
-                                required={true}
-                                multiline
-                            />
-                        </Grid>
-                    </Grid>
-                </form>
+                    </form>
+                )}
+            />
         </React.Fragment>
     )
 }
