@@ -7,6 +7,7 @@ import {
     FormControlLabel,
     FormControl,
     FormLabel,
+    Button
 } from '@material-ui/core';
 import { Form, Field } from 'react-final-form';
 import { makeStyles } from '@material-ui/core/styles';
@@ -36,7 +37,7 @@ const PatientsForm = (props) => {
         <React.Fragment>
             <Form
                 onSubmit={onSubmit}
-                render={({ handleSubmit }) => (
+                render={({ handleSubmit, submitting }) => (
                     <form className={classes.root} noValidate autoComplete="true" onSubmit={handleSubmit}>
                         <Grid container spacing={2}>
                             <Grid item xs={6}>
@@ -111,7 +112,7 @@ const PatientsForm = (props) => {
                             </Grid>
                             <Grid item xs={4}>
                                 <Typography paragraph >
-                                    สัญชาติ
+                                    เชื้อชาติ
                                 </Typography>
                                 <Field
                                     id="country2"
@@ -274,7 +275,7 @@ const PatientsForm = (props) => {
                                     variant="outlined"
                                     style={{ width: '100%' }}
                                     required
-                                    name="idss"
+                                    name="idnumber"
                                     component={TextField}
                                 />
                                 <Field
@@ -283,7 +284,7 @@ const PatientsForm = (props) => {
                                     label="กลุ่มเลือด"
                                     variant="outlined"
                                     type="text"
-                                    style={{marginTop: 20}}
+                                    style={{ marginTop: 20 }}
                                     formControlProps={{ fullWidth: true }}
                                 >
                                     {GroupBlood.map((item, index) => (
@@ -342,7 +343,7 @@ const PatientsForm = (props) => {
                                     required={true}
                                     component={TextField}
                                     name='dateExpGorldCard'
-                                    
+
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -355,6 +356,16 @@ const PatientsForm = (props) => {
                                     name="address"
                                     component={TextField}
                                 />
+                            </Grid>
+                            <Grid item xs={12} style={{ marginTop: 16, textAlign:'center', width: '100%'}}>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    type="submit"
+                                    disabled={submitting}
+                                >
+                                    บันทึกข้อมูล
+                                </Button>
                             </Grid>
                         </Grid>
                     </form>

@@ -5,14 +5,14 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import PatientsForm from './Patients-form'
 import { Link } from 'react-router-dom'
 
-const CreatePatientsPage = () => {
+const PatientDetailPage = () => {
     return (
         <React.Fragment>
             <Box >
                 <Grid container spacing={0} alignItems="center" justify="center">
                     <Grid item xs={6}>
                         <Typography paragraph style={{ fontWeight: 'bold', fontSize: '2em' }} >
-                            <DescriptionIcon color="primary" fontSize="small" /> สร้างรายชื่อผู้ป่วย
+                            <DescriptionIcon color="primary" fontSize="small" /> รายละเอียดผู้ป่วย
                         </Typography>
                     </Grid>
                     <Grid item xs={6} align='right'>
@@ -34,4 +34,4 @@ const CreatePatientsPage = () => {
     )
 }
 
-export default CreatePatientsPage
+export default PatientDetailPage

@@ -17,7 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button'
 import Homepage from '../pages/Homepage'
-import Patients from '../pages/Patients/Patients'
+import Patients from '../pages/Patients/PatientList'
+import PatientDetail from '../pages/Patients/Detail'
 import CreatePatients from '../pages/Patients/Create'
 import Administor from '../pages/Administor'
 import Diagnosis from '../pages/Diagnosis'
@@ -235,6 +236,7 @@ const  Layout = () => {
                 <Route exact path="/" component={Homepage} />
                 <Route exact path="/patients" component={Patients} />
                 <Route exact path="/patients/create" component={CreatePatients}/>
+                <Route exact path="/patients/detail/:id" component={PatientDetail} />
                 <Route exact path="/treatment" component={Treatment} />
                 <Route exact path="/diagnosis" component={Diagnosis} />
                 <Route exact path="/medicine" component={Medicine} />
